@@ -1,16 +1,19 @@
+import java.util.HashMap;
+
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        int n = nums.length;
         HashMap<Integer, Integer> mpp = new HashMap<>();
-        for (int i = 0; i < n; i++) {
-            int expectedNum = target - nums[i];
-            if (mpp.containsKey(expectedNum)) {
-                return new int[] { mpp.get(expectedNum), i };
-            } else {
-                mpp.put(nums[i], i);
+
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+
+            if (mpp.containsKey(complement)) {
+                return new int[] { mpp.get(complement), i };
             }
+
+            mpp.put(nums[i], i);
         }
 
-        return new int[] { -1, -1 };
+        return new int[] { -1, -1 };  // No valid pair found
     }
 }
