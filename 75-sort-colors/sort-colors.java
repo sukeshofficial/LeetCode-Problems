@@ -5,10 +5,10 @@ class Solution {
 
         while(mid <= high) {
             if(nums[mid] == 0) {
-                nums[mid] = nums[low];
-                nums[low] = 0;
-                mid++;
-                low++;
+                nums[mid++] = nums[low];
+                nums[low++] = 0;
+                // mid++;
+                // low++;
             }
             else if(nums[mid] == 1) {
                 mid++;
